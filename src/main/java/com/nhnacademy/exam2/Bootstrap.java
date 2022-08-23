@@ -15,7 +15,7 @@ public class Bootstrap {
         System.out.println();
         problem2_5();
         System.out.println();
-        // problem2_6();
+        problem2_6();
     }
 
     private static void problem2_1() {
@@ -97,9 +97,13 @@ public class Bootstrap {
             numbers[i] = new RationalNumber(numerator, denominator);
         }
 
-        System.out.println("???");
-        System.out.println("???");
-        System.out.println("???");
+        StringBuilder builder = new StringBuilder("[");
+        for (RationalNumber number : numbers) {
+            builder.append(number).append(", ");
+        }
+
+        builder.replace(builder.length() - 2, builder.length() - 1, "]");
+        System.out.println(builder);
     }
 
 }

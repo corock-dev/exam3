@@ -32,6 +32,14 @@ public class RationalNumber extends MyNumber {
 
     @Override
     public RationalNumber plus(MyNumber operand) {
+        if (((RationalNumber) operand).denominator == 0) {
+            RationalNumber other = (RationalNumber) operand;
+            other.denominator = this.denominator;
+            other.numerator = this.denominator * other.numerator;
+
+            return new RationalNumber(this.numerator + other.numerator, denominator);
+        }
+
         int numerator = (this.numerator * ((RationalNumber) operand).denominator) + ((RationalNumber) operand).numerator * this.denominator;
         int denominator = (this.denominator * ((RationalNumber) operand).denominator);
 
